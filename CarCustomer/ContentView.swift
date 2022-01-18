@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @State private var starterCars = StarterCars()
     @State private var selectedCar: Int = 0
     @State private var exhaustPackage = false
@@ -15,6 +16,7 @@ struct ContentView: View {
     @State private var enginePackage = false
     @State private var reflectivePaint = false
     @State private var money = 5000
+    @State private var remainingTime = 10
     
     var body: some View {
         
@@ -70,38 +72,62 @@ struct ContentView: View {
             }
         )
         
-        Form {
+        let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        
+        VStack {
             Section {
-                Text("Money: $\(money)")
+                Text("\(remainingTime)")
+                    .onReceive(timer) { _ in
+                        if self.remainingTime > 0 {
+                            self.remainingTime -= 1
+                        }
+                    }
             }
             
-            VStack(alignment: .leading){
-                ForEach(starterCars.cars[selectedCar].displayStats(), id: \.self) {stat in
-                    Text(stat)
+            Form {
+                Section {
+                    Text("Money: $\(money)")
                 }
-
-                Spacer()
                 
-                Button("Next Car", action: {
-                    if selectedCar < starterCars.cars.count - 1 {
-                        selectedCar += 1
-                    } else {
-                        selectedCar = 0
+                
+                
+                VStack(alignment: .leading){
+                    ForEach(starterCars.cars[selectedCar].displayStats(), id: \.self) {stat in
+                        Text(stat)
                     }
+
+                    Spacer()
                     
-                })
-            }
-            Section {
-                Toggle("Exhaust Package", isOn: exhaustPackageBinding)
-                    .disabled(money < 2000)
-                Toggle("Tires Package", isOn: tiresPackageBinding)
-                    .disabled(money < 1500)
-                Toggle("Engine Package", isOn: enginePackageBinding)
-                    .disabled(money < 2500)
-                Toggle("Reflective Paint", isOn: reflectivePaintBinding)
-                    .disabled(money < 50)
+                    Button("Next Car", action: {
+                        if selectedCar < starterCars.cars.count - 1 {
+                            selectedCar += 1
+                        } else {
+                            selectedCar = 0
+                        }
+                        exhaustPackage = false
+                        tiresPackage = false
+                        enginePackage = false
+                        reflectivePaint = false
+                        money = 5000
+                        starterCars = StarterCars()
+                        
+                    })
+                    .disabled(remainingTime == 0)
+                }
+                Section {
+                    Toggle("Exhaust Package ($\(2000))", isOn: exhaustPackageBinding)
+                        .disabled(exhaustPackage == false && money < 2000 && remainingTime > 0)
+                    Toggle("Tires Package ($\(1500))", isOn: tiresPackageBinding)
+                        .disabled(tiresPackage == false && money < 1500 && remainingTime > 0)
+                    Toggle("Engine Package ($\(2500))", isOn: enginePackageBinding)
+                        .disabled(enginePackage == false && money < 2500 && remainingTime > 0)
+                    Toggle("Reflective Paint ($\(50))", isOn: reflectivePaintBinding)
+                        .disabled(reflectivePaint == false && money < 50 && remainingTime > 0)
+                }
             }
         }
+        
+
         
         
     }

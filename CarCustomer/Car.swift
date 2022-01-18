@@ -19,6 +19,6 @@ struct Car {
     var handling: Int
     
     func displayStats() -> [String] {
-        return ["Make: \(make)", "Model: \(model)", "Top Speed: \(topSpeed)", "Acceleration (0-60): \(acceleration)mph", "Handling: \(handling)"]
+        return ["Make: \(make)", "Model: \(model)", "Top Speed: \(topSpeed)mph", "Acceleration (0-60): \(acceleration)", "Handling: \(handling)"]
     }
 }
