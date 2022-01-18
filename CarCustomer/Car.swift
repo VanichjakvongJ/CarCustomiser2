@@ -11,10 +11,14 @@ struct Car {
     let make: String
     let model: String
     var topSpeed: Int
-    var acceleration: Double
+    var acceleration: Double {
+        didSet {
+            acceleration = round(acceleration * 100) / 100.0
+        }
+    }
     var handling: Int
     
     func displayStats() -> [String] {
-        return ["Make: \(make)", "Model: \(model)", "Top Speed: \(topSpeed)", "Acceleration (0-60): \(acceleration)", "Handling: \(handling)"]
+        return ["Make: \(make)", "Model: \(model)", "Top Speed: \(topSpeed)", "Acceleration (0-60): \(acceleration)mph", "Handling: \(handling)"]
     }
 }

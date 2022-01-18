@@ -13,6 +13,7 @@
 		433964A22791694D00D1C7D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433964A12791694D00D1C7D2 /* Preview Assets.xcassets */; };
 		433964AD2791694D00D1C7D2 /* CarCustomerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433964AC2791694D00D1C7D2 /* CarCustomerTests.swift */; };
 		433964B82791694D00D1C7D2 /* CarCustomerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433964B72791694D00D1C7D2 /* CarCustomerUITests.swift */; };
+		43AFFD1C27955ED100BC108F /* StarterCars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFFD1B27955ED100BC108F /* StarterCars.swift */; };
 		43D7E74D2791FBA300E37282 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7E74C2791FBA300E37282 /* Car.swift */; };
 		43D7E7512791FBFD00E37282 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7E74C2791FBA300E37282 /* Car.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		433964B32791694D00D1C7D2 /* CarCustomerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarCustomerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		433964B72791694D00D1C7D2 /* CarCustomerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomerUITests.swift; sourceTree = "<group>"; };
 		433964B92791694D00D1C7D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43AFFD1B27955ED100BC108F /* StarterCars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterCars.swift; sourceTree = "<group>"; };
 		43D7E74C2791FBA300E37282 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				433964A32791694D00D1C7D2 /* Info.plist */,
 				433964A02791694D00D1C7D2 /* Preview Content */,
 				43D7E74C2791FBA300E37282 /* Car.swift */,
+				43AFFD1B27955ED100BC108F /* StarterCars.swift */,
 			);
 			path = CarCustomer;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				4339649D2791694600D1C7D2 /* ContentView.swift in Sources */,
 				4339649B2791694600D1C7D2 /* CarCustomerApp.swift in Sources */,
+				43AFFD1C27955ED100BC108F /* StarterCars.swift in Sources */,
 				43D7E74D2791FBA300E37282 /* Car.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
